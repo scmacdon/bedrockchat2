@@ -60,7 +60,7 @@ function App() {
       <h2>AI Assistant (Nova Pro)</h2>
       <p className="description">
         Powered by Amazon's Nova Pro model, this assistant provides intelligent,
-        real-time responses with memory recall. Your chat history is stored to
+        real-time responses with memory recall and improved CSS. Your chat history is stored to
         enhance follow-up conversations and context understanding.
       </p>
 
