@@ -1,38 +1,165 @@
-.App {
-  text-align: center;
+.chat-container {
+  max-width: 850px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background: #fafafa;
+  font-size: 1rem;
+  line-height: 1.65;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Chat box */
+.chat-box {
+  max-height: 550px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.06);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Messages */
+.msg {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.msg.user {
+  background: #eaf4ff;
+  border-left: 4px solid #3399ff;
+}
+
+.msg.assistant {
+  background: #f9f9f9;
+  border-left: 4px solid #999;
+}
+
+/* Hover effect */
+.msg:hover {
+  transform: translateY(-2px);
+}
+
+/* === Markdown / Rich text in AI responses === */
+.msg.assistant strong,
+.msg.assistant b {
+  font-weight: 600;
+  color: #222;
+}
+
+.msg.assistant em,
+.msg.assistant i {
+  font-style: italic;
+  color: #444;
+}
+
+.msg.assistant ul,
+.msg.assistant ol {
+  margin: 0.6rem 0 0.6rem 1.4rem;
+  padding-left: 0.8rem;
+}
+
+.msg.assistant li {
+  margin: 0.4rem 0;
+}
+
+.msg.assistant blockquote {
+  margin: 0.8rem 0;
+  padding: 0.8rem 1rem;
+  background: #f0f6ff;
+  border-left: 4px solid #3399ff;
+  border-radius: 6px;
+  color: #333;
+  font-style: italic;
+}
+
+/* Tables */
+.msg.assistant table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.msg.assistant th,
+.msg.assistant td {
+  border: 1px solid #ddd;
+  padding: 0.6rem;
+  text-align: left;
+}
+
+.msg.assistant th {
+  background: #f3f3f3;
+  font-weight: 600;
+}
+
+/* === Code block styling === */
+.msg.assistant pre {
+  background: #1e1e1e;
+  color: #f8f8f2;
+  font-family: 'Fira Code', Consolas, Monaco, 'Courier New', monospace;
+  font-size: 0.95rem;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0.8rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.msg.assistant code {
+  background: #2d2d2d;
+  color: #f8f8f2;
+  font-family: 'Fira Code', Consolas, Monaco, 'Courier New', monospace;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+/* Headings in AI responses */
+.msg.assistant h1,
+.msg.assistant h2,
+.msg.assistant h3 {
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.msg.assistant h1 { font-size: 1.6rem; }
+.msg.assistant h2 { font-size: 1.4rem; }
+.msg.assistant h3 { font-size: 1.2rem; }
+
+/* Input + button */
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: 'Segoe UI', sans-serif;
+  resize: vertical;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+}
+
+button {
+  margin-top: 0.8rem;
+  padding: 0.7rem 1.6rem;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #0073bb, #005fa3);
   color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.1s ease;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+  background: linear-gradient(135deg, #005fa3, #004a80);
+  transform: translateY(-2px);
 }
